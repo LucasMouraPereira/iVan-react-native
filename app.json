@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "iVan",
+    "slug": "iVan",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
