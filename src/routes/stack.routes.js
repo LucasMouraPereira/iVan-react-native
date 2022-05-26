@@ -7,7 +7,19 @@ import RegisterRoute from "~/screens/RegisterRoute/index";
 
 export const StackRoutes = () => (
   <Navigator>
-    <Screen name="Home" component={Home} />
-    <Screen name="RegisterRoute" component={RegisterRoute} />
+    <Screen
+      name="Home"
+      component={Home}
+      options={{
+        headerShown: false,
+      }}
+    />
+    <Screen
+      name="RegisterRoute"
+      component={RegisterRoute}
+      options={{
+        headerShown: true,
+      }}
+    />
   </Navigator>
 );

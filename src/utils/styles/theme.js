@@ -6,6 +6,7 @@ export const theme = {
     purple1: "#564666",
     purple2: "#8870A0",
     grey: "#C6C6C6",
+    header: "#F9FAFC",
   },
   fonts: {
     family: {
