@@ -9,8 +9,12 @@ const Home = ({ navigation }) => {
   const customButton = {
     marginBottom: "20px",
   };
-  const openScreen = () => {
+  const openScreenRegister = () => {
     navigation.navigate("RegisterRoute");
+  };
+
+  const openScreenList = () => {
+    navigation.navigate("ListRoute");
   };
   return (
     <S.Container>
@@ -30,12 +34,12 @@ const Home = ({ navigation }) => {
       <CustomButton
         styled={customButton}
         title="Acessar minhas rotas"
-        onPress={openScreen}
+        onPress={openScreenList}
       />
       <CustomButton
         styled={customButton}
         title="Cadastrar minhas rotas"
-        onPress={openScreen}
+        onPress={openScreenRegister}
       />
     </S.Container>
   );

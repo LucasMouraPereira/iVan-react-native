@@ -3,7 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const { Screen, Navigator } = createNativeStackNavigator();
 
 import Home from "~/screens/Home";
-import RegisterRoute from "~/screens/RegisterRoute/index";
+import RegisterRoute from "~/screens/RegisterRoute";
+import ListRoute from "~/screens/ListRoute";
 
 export const StackRoutes = () => (
   <Navigator>
@@ -17,6 +18,13 @@ export const StackRoutes = () => (
     <Screen
       name="RegisterRoute"
       component={RegisterRoute}
+      options={{
+        headerShown: true,
+      }}
+    />
+    <Screen
+      name="ListRoute"
+      component={ListRoute}
       options={{
         headerShown: true,
       }}
