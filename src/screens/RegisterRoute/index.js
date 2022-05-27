@@ -4,7 +4,8 @@ import * as S from "./styled";
 
 const RegisterRoute = () => (
   <S.Container>
-    <S.Title>Iniciando projeto 2!</S.Title>
+    <S.Title>Qual é o seu caminho?</S.Title>
+    <S.SubTitle>Vamos cadastrar a rota:</S.SubTitle>
   </S.Container>
 );
 

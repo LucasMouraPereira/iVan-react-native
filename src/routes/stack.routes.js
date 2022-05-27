@@ -19,6 +19,7 @@ export const StackRoutes = () => (
       name="RegisterRoute"
       component={RegisterRoute}
       options={{
+        title: "Nova Rota",
         headerShown: true,
       }}
     />
