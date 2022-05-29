@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import CustomButton from "~/core/CustomButton";
 
 import * as S from "./styled";
@@ -9,6 +8,7 @@ const Home = ({ navigation }) => {
   const customButton = {
     marginBottom: "20px",
   };
+  
   const openScreenRegister = () => {
     navigation.navigate("RegisterRoute");
   };

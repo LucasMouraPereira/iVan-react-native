@@ -2,12 +2,14 @@ import React from "react";
 
 import * as S from './styled';
 
-export const CustomTextInput = ({ handleChange, handleBlur, value, text }) => (
+const CustomTextInput = ({ onChangeText, placeholder, value }) => (
   <S.ContainerTextInput>
     <S.TextInputCustom
-      onChangeText={handleChange(text)}
-      onBlur={handleBlur(text)}
+      onChangeText={onChangeText}
+      placeholder={placeholder}
       value={value}
     />
   </S.ContainerTextInput>
 );
+
+export default CustomTextInput;

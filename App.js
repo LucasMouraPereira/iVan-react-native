@@ -1,5 +1,6 @@
 import React from "react";
-import 'react-native-gesture-handler';
+
+import { ApiProvider } from "~/contexts/ApiContext";
 
 import {
   useFonts,
@@ -9,7 +10,7 @@ import {
 
 import { ThemeProvider } from "styled-components";
 
-import AppLoading from 'expo-app-loading';
+import AppLoading from "expo-app-loading";
 
 import Routes from "~/routes";
 import { theme } from "~/utils/styles/theme";
@@ -26,7 +27,9 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Routes />
+      <ApiProvider>
+        <Routes />
+      </ApiProvider>
     </ThemeProvider>
   );
 };
