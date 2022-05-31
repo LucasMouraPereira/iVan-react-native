@@ -1,0 +1,12 @@
+{
+  "inputsData": [
+    {
+      "text": "Onde você esta?",
+      "placeholder": "Início"
+    },
+    {
+      "text": "Para onde você vai?",
+      "placeholder": "Fim"
+    }
+  ]
+}

@@ -1,10 +1,13 @@
 import React from "react";
 import {
-  ScrollView,
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
+
+import { ScrollView } from "react-native-virtualized-view";
+
+import { inputsData } from "~/utils/mocks/google_mocks.json";
 
 import { useApiContext } from "~/contexts/ApiContext";
 
@@ -50,15 +53,12 @@ const RegisterRoute = () => {
               />
             </S.Input>
 
-            <S.Input>
-              <S.InputInfo>Onde você esta?</S.InputInfo>
-              <GooglePlacesInput placeholder="Início" />
-            </S.Input>
-
-            <S.Input>
-              <S.InputInfo>Para onde você vai?</S.InputInfo>
-              <GooglePlacesInput placeholder="Fim" />
-            </S.Input>
+            {inputsData.map(({ text, placeholder }, index) => (
+              <S.Input key={index}>
+                <S.InputInfo>{text}</S.InputInfo>
+                <GooglePlacesInput placeholder={placeholder} />
+              </S.Input>
+            ))}
 
             <CustomButton
               styled={customButton}

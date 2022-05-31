@@ -27,12 +27,13 @@ export const SubTitle = styled.Text`
 `;
 
 export const WrapperInput = styled.View`
-  flex: 1;
+  display: flex;
   justify-content: space-around;
 `;
 
 export const Input = styled.View`
   flex: 1;
+  margin-bottom: 10px;
 `;
 
 export const InputInfo = styled.Text`
