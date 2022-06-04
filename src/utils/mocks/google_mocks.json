@@ -2,11 +2,13 @@
   "inputsData": [
     {
       "text": "Onde você esta?",
-      "placeholder": "Início"
+      "placeholder": "Início",
+      "isOrigin": true
     },
     {
       "text": "Para onde você vai?",
-      "placeholder": "Fim"
+      "placeholder": "Fim",
+      "isOrigin": false
     }
   ]
 }

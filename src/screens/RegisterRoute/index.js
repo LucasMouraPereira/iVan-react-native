@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Platform,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from "react-native";
+import { Platform } from "react-native";
 
 import { ScrollView } from "react-native-virtualized-view";
 
@@ -18,8 +14,7 @@ import CustomButton from "~/core/CustomButton";
 import * as S from "./styled";
 
 const RegisterRoute = () => {
-  const { routeName, setRouteName, setOrigin, setDestination } =
-    useApiContext();
+  const { routeName, setRouteName } = useApiContext();
 
   const customButton = {
     marginBottom: "20px",
@@ -35,39 +30,40 @@ const RegisterRoute = () => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       scrollEnabled={true}
     >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ScrollView
-          horizontal={false}
-          nestedScrollEnabled={true}
-          contentContainerStyle={{ flexGrow: 0.7, justifyContent: "center" }}
-        >
-          <S.Title>Qual é o seu caminho?</S.Title>
-          <S.SubTitle>Vamos cadastrar a rota:</S.SubTitle>
-          <S.WrapperInput>
-            <S.Input>
-              <S.InputInfo>Digite o nome para sua rota</S.InputInfo>
-              <CustomTextInput
-                value={routeName}
-                placeholder="Nome da rota"
-                onChangeText={setRouteName}
+      <ScrollView
+        keyboardShouldPersistTaps={"handled"}
+        nestedScrollEnabled={true}
+        contentContainerStyle={{ flexGrow: 0.7, justifyContent: "center" }}
+      >
+        <S.Title>Qual é o seu caminho?</S.Title>
+        <S.SubTitle>Vamos cadastrar a rota:</S.SubTitle>
+        <S.WrapperInput>
+          <S.Input>
+            <S.InputInfo>Digite o nome para sua rota</S.InputInfo>
+            <CustomTextInput
+              value={routeName}
+              placeholder="Nome da rota"
+              onChangeText={setRouteName}
+            />
+          </S.Input>
+
+          {inputsData.map(({ text, placeholder, isOrigin }, index) => (
+            <S.Input key={index}>
+              <S.InputInfo>{text}</S.InputInfo>
+              <GooglePlacesInput
+                placeholder={placeholder}
+                isOrigin={isOrigin}
               />
             </S.Input>
+          ))}
 
-            {inputsData.map(({ text, placeholder }, index) => (
-              <S.Input key={index}>
-                <S.InputInfo>{text}</S.InputInfo>
-                <GooglePlacesInput placeholder={placeholder} />
-              </S.Input>
-            ))}
-
-            <CustomButton
-              styled={customButton}
-              title="Cadastrar rotas"
-              onPress={openScreenRegister}
-            />
-          </S.WrapperInput>
-        </ScrollView>
-      </TouchableWithoutFeedback>
+          <CustomButton
+            styled={customButton}
+            title="Cadastrar rotas"
+            onPress={openScreenRegister}
+          />
+        </S.WrapperInput>
+      </ScrollView>
     </S.Container>
   );
 };
