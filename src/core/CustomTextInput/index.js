@@ -1,15 +1,18 @@
 import React from "react";
 
-import * as S from './styled';
+import * as S from "./styled";
 
-const CustomTextInput = ({ onChangeText, placeholder, value }) => (
-  <S.ContainerTextInput>
-    <S.TextInputCustom
-      onChangeText={(text) => onChangeText(text)}
-      placeholder={placeholder}
-      value={value}
-    />
-  </S.ContainerTextInput>
-);
+const CustomTextInput = ({ onChangeText, placeholder, value }) => {
+  return (
+    <S.ContainerTextInput>
+      <S.TextInputCustom
+        onChangeText={onChangeText}
+        placeholder={placeholder}
+        value={value}
+        autoFocus={true}
+      />
+    </S.ContainerTextInput>
+  );
+};
 
 export default CustomTextInput;

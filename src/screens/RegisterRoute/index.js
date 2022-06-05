@@ -14,14 +14,10 @@ import CustomButton from "~/core/CustomButton";
 import * as S from "./styled";
 
 const RegisterRoute = () => {
-  const { routeName, setRouteName } = useApiContext();
+  const { routeName, setRouteName, getRouter } = useApiContext();
 
   const customButton = {
     marginBottom: "20px",
-  };
-
-  const openScreenRegister = () => {
-    navigation.navigate("RegisterRoute");
   };
 
   return (
@@ -60,7 +56,7 @@ const RegisterRoute = () => {
           <CustomButton
             styled={customButton}
             title="Cadastrar rotas"
-            onPress={openScreenRegister}
+            onPress={getRouter}
           />
         </S.WrapperInput>
       </ScrollView>
