@@ -10,12 +10,12 @@ import * as S from "./styled";
 
 const Maps = ({ route }) => {
   const initialPosition = {
-    latitude: route?.params.rota.origem[0],
-    longitude: route?.params.rota.origem[1],
+    latitude: route?.params.rota.origem.latLng[0],
+    longitude: route?.params.rota.origem.latLng[1],
   };
   const destinationPosition = {
-    latitude: route?.params.rota.destino[0],
-    longitude: route?.params.rota.destino[1],
+    latitude: route?.params.rota.destino.latLng[0],
+    longitude: route?.params.rota.destino.latLng[1],
   };
   const [distance, setDistance] = useState(null);
 

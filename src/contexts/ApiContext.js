@@ -1,5 +1,5 @@
 import React, { useState, useContext, createContext } from "react";
-
+import { Alert } from "react-native";
 import axios from "axios";
 
 export const ApiContext = createContext({});
@@ -10,27 +10,33 @@ export const ApiProvider = ({ children }) => {
   const [routeName, setRouteName] = useState();
   const [origin, setOrigin] = useState([]);
   const [destination, setDestination] = useState([]);
+  const [listResponse, setListResponse] = useState();
 
-  const getRouter = () => {
-    axios({
+  const getRouter = async () => {
+    const { status } = await axios({
       method: "post",
-      url: "https://us-central1-ivan-6ee57.cloudfunctions.net/gereRota",
+      url: "https://us-central1-ivan-6ee57.cloudfunctions.net/gerarRota",
       data: {
-        nomeRota: routeName,
+        nome: routeName,
         origem: origin,
         destino: destination,
       },
     });
+
+    if(status === 201 || status === 200) {
+      Alert.alert("Rota cadastrada!")
+    } else {
+      Alert.alert("Erro ao cadastrar a rota!")
+    }
   };
 
-  const listRoute = () => {
-    const { data } = axios({
+  const listRoute = async () => {
+    const resp = await axios({
       method: "get",
       url: "https://us-central1-ivan-6ee57.cloudfunctions.net/listarRotas",
     });
-    console.log(data);
-    return data;
-    
+
+    setListResponse(resp.data);
   };
 
   return (
@@ -43,7 +49,8 @@ export const ApiProvider = ({ children }) => {
         destination,
         setDestination,
         getRouter,
-        listRoute
+        listRoute,
+        listResponse
       }}
     >
       {children}
