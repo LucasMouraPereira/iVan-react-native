@@ -1,7 +1,5 @@
 import React from "react";
 
-import { ScrollView } from "react-native";
-
 import { googleApi } from "~/utils/mocks/google_key_mocks.json";
 
 import { useApiContext } from "~/contexts/ApiContext";

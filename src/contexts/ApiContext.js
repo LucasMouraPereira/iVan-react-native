@@ -12,8 +12,7 @@ export const ApiProvider = ({ children }) => {
   const [destination, setDestination] = useState([]);
 
   const getRouter = () => {
-    console.log({ nomeRota: routeName, origem: origin, destino: destination });
-    const { status } = axios({
+    axios({
       method: "post",
       url: "https://us-central1-ivan-6ee57.cloudfunctions.net/gereRota",
       data: {
@@ -22,8 +21,18 @@ export const ApiProvider = ({ children }) => {
         destino: destination,
       },
     });
-    console.log(status);
   };
+
+  const listRoute = () => {
+    const { data } = axios({
+      method: "get",
+      url: "https://us-central1-ivan-6ee57.cloudfunctions.net/listarRotas",
+    });
+    console.log(data);
+    return data;
+    
+  };
+
   return (
     <ApiContext.Provider
       value={{
@@ -34,6 +43,7 @@ export const ApiProvider = ({ children }) => {
         destination,
         setDestination,
         getRouter,
+        listRoute
       }}
     >
       {children}
